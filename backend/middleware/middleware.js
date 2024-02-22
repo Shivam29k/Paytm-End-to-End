@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-import { JWT_SECRET } from "../config";
+const { JWT_SECRET }  = require("../config");
 
 function authMiddleware(req, res, next) {
   const authHeader = req.headers.authorization;
@@ -14,17 +14,17 @@ function authMiddleware(req, res, next) {
   
   try {
     const payload = jwt.verify(token, JWT_SECRET);
-    req.user = payload.userID;
-
-    next();
+    req.userID = payload.userID;
+    return next();
   } catch (e) {
     res.status(401).json({
-      message: "Unauthorized"
+      message: "Unauthorized",
+      error: e
     });
   }
   res.redirect("/login");
 }
 
-module.exports ={ 
+module.exports = { 
   authMiddleware
 }
