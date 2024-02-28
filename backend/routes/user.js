@@ -70,7 +70,7 @@ router.post('/signup', async (req, res)=>{
 
 
 
-const signIpBody = zod.object({
+const signInBody = zod.object({
     username: zod.string().email().nonempty(),
     password: zod.string().min(6)
 })
@@ -82,7 +82,7 @@ router.post('/signin', async (req, res)=>{
     //     password: "123456"
     // }
 
-    const validInputs = signIpBody.safeParse(req.body);
+    const validInputs = signInBody.safeParse(req.body);
 
     if(!validInputs.success){
         return res.status(411).json({
