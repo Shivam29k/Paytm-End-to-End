@@ -63,9 +63,7 @@ router.post('/signup', async (req, res)=>{
     
     return res.status(200).json({
         message: "User created successfully",
-        token : token,
-        firstname : user.firstname,
-        lastname : user.lastname
+        token : token
     })
     
 })
@@ -115,13 +113,20 @@ router.post('/signin', async (req, res)=>{
 
     res.status(200).json({
         message: "User logged in successfully",
-        token : token,
+        token : token
+    })
+})
+
+router.get('/user', authMiddleware, async (req, res)=>{
+    const user  = await User.findOne({
+        userID: req.userID 
+    })
+
+    res.status(200).json({
         firstname : user.firstname,
         lastname : user.lastname
     })
 })
-
-
 
 const updateBody = zod.object({
     password: zod.string().min(6).optional(),
