@@ -119,10 +119,10 @@ router.post('/signin', async (req, res)=>{
 
 router.get('/user', authMiddleware, async (req, res)=>{
     const user  = await User.findOne({
-        userID: req.userID 
+        _id: req.userID 
     })
-
     res.status(200).json({
+        email: user.username, 
         firstname : user.firstname,
         lastname : user.lastname
     })
