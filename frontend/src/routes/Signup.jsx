@@ -18,13 +18,14 @@ function Signup() {
         setLoad(true);
         // await axios.post('http://localhost:3000/api/v1/user/signup', {
         await axios.post('https://paytm-end-to-end-production.up.railway.app/api/v1/user/signup', {
-            firstname: firstname,
-            lastname: lastname,
+            firstname: firstname.charAt(0).toUpperCase() + firstname.slice(1),
+            lastname: lastname.charAt(0).toUpperCase() + lastname.slice(1),
             username: email,
             password: password
         })
             .then((response) => {
                 if (response.status == 200) {
+                    localStorage.setItem("user", JSON.stringify(`Bearer ${response.data.token}`));
                     console.log("redirecting...... to dashborad.");
                     navigate('/dashboard');
                 }else{
@@ -34,6 +35,7 @@ function Signup() {
             })
             .catch((err) => {
                 setLoad(false);
+                alert("error: " + err.response.data.message);
                 console.log(err);
             })
         // await axios.get('http://localhost:3000/');
@@ -42,7 +44,7 @@ function Signup() {
     return (
         <>
             <div className='h-screen bg-zinc-400 flex items-center justify-center '>
-                <div className='shadow-2xl h-4/5 w-4/5 min-w-80 max-w-md rounded-xl bg-white flex items-center justify-center flex-col gap-5 absolute z-0'>
+                <div className='shadow-2xl h-4/5 sm:w-4/5 min-w-80 max-w-md rounded-xl bg-white flex items-center justify-center flex-col gap-5 absolute z-0'>
                     <div className='font-bold text-5xl drop-shadow-3xl' >Sign Up</div>
                     <div className='w-5/6'>
                         <div className='text-xl text-center text-gray-500 ' >Enter your information to create an account</div>
@@ -59,7 +61,7 @@ function Signup() {
                         {/* <button onClick={signUp} className='border-2 rounded-md w-full p-2 text-xl bg-black text-white mt-2'>Sign up</button> */}
                         <button onClick={signUp} className="button-50 text-xl mt-4" role="button">Sign up</button>
                     </div>
-                    <div className='font-semibold mt-2'>Already have an account? <a href="/signin" className='text-blue-500 underline'>Sign in</a></div>
+                    <div className='font-semibold mt-2'>Already have an account? <a href="/signin" className='text-blue-500 underline'>Sign In</a></div>
                 </div>
                 {loading&& <Loading />}
             </div>
