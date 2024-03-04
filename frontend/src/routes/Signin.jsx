@@ -38,8 +38,8 @@ function Signin() {
   return (
     <>
       <div className='h-screen bg-zinc-400 flex items-center justify-center '>
-        <div className='shadow-2xl h-4/6 sm:w-4/5 min-w-80 max-w-md rounded-xl bg-white flex items-center justify-center flex-col gap-5 absolute z-0'>
-          <div className='font-bold text-5xl drop-shadow-3xl' >Sign In</div>
+        <div className='shadow-2xl h-4/6 min-h-[450px] sm:w-4/5 min-w-80 max-w-md rounded-xl bg-white flex items-center justify-around flex-col absolute z-0'>
+          <div className='font-bold text-5xl drop-shadow-3xl mt-4' >Sign In</div>
           <div className='w-5/6'>
             <div className='text-xl text-center text-gray-500 ' >Enter your credentials to access your account</div>
           </div>
@@ -51,7 +51,7 @@ function Signin() {
             {/* <button onClick={signUp} className='border-2 rounded-md w-full p-2 text-xl bg-black text-white mt-2'>Sign up</button> */}
             <button onClick={signIn} className="button-50 text-xl mt-4" role="button">Sign in</button>
           </div>
-          <div className='font-semibold mt-2'>Dont have an account? <a href="/signup" className='text-blue-500 underline'>Sign Up</a></div>
+          <div className='font-semibold mt-2 mb-2'>Dont have an account? <a href="/signup" className='text-blue-500 underline'>Sign Up</a></div>
         </div>
         {loading && <Loading />}
       </div>
