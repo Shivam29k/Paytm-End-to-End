@@ -72,7 +72,7 @@ function Signup() {
 
 
 function Loading() {
-    return <div className='bg-gray-200/[.7] shadow-2xl h-4/5 w-4/5 min-w-80 max-w-md rounded-xl flex items-center justify-center relative z-2 flex-col gap-10 '>
+    return <div className='bg-gray-200/[.7] shadow-2xl h-4/5 min-h-[633px] sm:w-4/5 min-w-80 max-w-md rounded-xl flex items-center justify-center relative z-2 flex-col gap-10 '>
 
         <div role="status ">
             <svg aria-hidden="true" className="drop-shadow-3xl h-20 text-white animate-spin dark:text-transparent fill-black" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

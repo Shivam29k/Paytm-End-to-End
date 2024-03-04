@@ -11,7 +11,10 @@ export default {
       },
       boxShadow: {
         'b': '0px 5px 8px rgba(0, 0, 0, 0.3)',
-      }
+      },
+      colors: {
+        'glass': 'rgba(148, 163, 184, 0.4)'
+      },
     },
   },
   plugins: [],
