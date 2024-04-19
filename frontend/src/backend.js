@@ -1,1 +1,1 @@
-export const BACKEND_URL = "http://ec2-13-201-226-68.ap-south-1.compute.amazonaws.com"
+export const BACKEND_URL = "https://backend-paytm.shivamk.tech"
