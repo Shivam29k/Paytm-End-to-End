@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Pfp } from './components/Pfp';
 import { UserList } from './components/UserList';
 import { Loading } from './components/Loading';
+import { BACKEND_URL } from '../backend';
 
 function Dashboard() {
 
@@ -24,7 +25,7 @@ function Navbar({ token }) {
   const [name, setName] = useState([]);
 
   useEffect(() => {
-    axios.get('https://paytm-end-to-end-production.up.railway.app/api/v1/user/user', {
+    axios.get(`${BACKEND_URL}/api/v1/user/user`, {
       headers: {
         Authorization: token
       }
@@ -51,7 +52,7 @@ function Balance({ token }) {
   const [balance, setBalance] = useState('Loading...');
 
   useEffect(() => {
-    axios.get('https://paytm-end-to-end-production.up.railway.app/api/v1/account/balance', {
+    axios.get(`${BACKEND_URL}/api/v1/account/balance`, {
       headers: {
         Authorization: token
       }
@@ -77,7 +78,7 @@ function Users() {
       clearTimeout(searchRef.current)
     }
     searchRef.current = setTimeout(() => {
-      axios.get(`https://paytm-end-to-end-production.up.railway.app/api/v1/user/bulk?filter=${search}`)
+      axios.get(`${BACKEND_URL}/api/v1/user/bulk?filter=${search}`)
         .then((response) => {
           setUsers(response.data.user);
         })

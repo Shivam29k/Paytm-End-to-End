@@ -15,7 +15,7 @@ function SendMoney() {
   const transferMoney = async () =>{
     setLoad(true);
     const userToken = JSON.parse(localStorage.getItem('user'));
-    axios.post('https://paytm-end-to-end-production.up.railway.app/api/v1/account/transfer', {
+    axios.post(`${BACKEND_URL}/api/v1/account/transfer`, {
       amount: amount,
       receiverID : id
     }, {

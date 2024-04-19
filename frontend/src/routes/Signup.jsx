@@ -17,7 +17,7 @@ function Signup() {
     const signUp = async () => {
         setLoad(true);
         // await axios.post('http://localhost:3000/api/v1/user/signup', {
-        await axios.post('https://paytm-end-to-end-production.up.railway.app/api/v1/user/signup', {
+        await axios.post(`${BACKEND_URL}/api/v1/user/signup`, {
             firstname: firstname.charAt(0).toUpperCase() + firstname.slice(1),
             lastname: lastname.charAt(0).toUpperCase() + lastname.slice(1),
             username: email,
