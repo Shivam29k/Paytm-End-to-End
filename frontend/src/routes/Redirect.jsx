@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BACKEND_URL } from '../backend';
 
 function Redirect() {
     const [count, setCount] = useState(10)
