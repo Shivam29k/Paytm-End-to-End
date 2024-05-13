@@ -1,5 +1,5 @@
 export function Loading({ text }) {
-    return <div className='h-full flex items-center justify-center flex-col gap-10 pt-24'>
+    return <div className='h-full flex items-center justify-center flex-col gap-10 pt-24 min-h-[70vh]'>
 
         <div role="status ">
             <svg aria-hidden="true" className="drop-shadow-3xl h-20 text-white animate-spin dark:text-transparent fill-black" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
